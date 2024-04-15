@@ -31,6 +31,11 @@ public abstract class Product implements Item {
         return serialNumber;
     }
 
+    @Override
+    public Date getManufactureDate() {
+        return manufacturedOn;
+    }
+
     public String toString() {
         return "Manufacturer :" + MANUFACTURER + "\nSerial Number :" + serialNumber + "\nDate :" + manufacturedOn + "\nName :" + name;
     }
