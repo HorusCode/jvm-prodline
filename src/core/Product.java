@@ -1,6 +1,7 @@
 package core;
 
 import java.util.Date;
+import java.util.List;
 
 public abstract class Product implements Item {
     private int serialNumber;
@@ -34,6 +35,14 @@ public abstract class Product implements Item {
     @Override
     public Date getManufactureDate() {
         return manufacturedOn;
+    }
+
+    public static void printType(List<? extends Product> produces, Class<?> type) {
+        for(Product product : produces) {
+            if(type.isInstance(product)) {
+                System.out.println(product);
+            }
+        }
     }
 
     public String toString() {
