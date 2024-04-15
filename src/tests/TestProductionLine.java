@@ -27,7 +27,6 @@ public class TestProductionLine {
         try {
             for(Product product : products) {
                 String output = product.toString() + "\n" + employee.toString();
-                System.out.println(output);
                 processFiles.writeFile(output);
             }
         } catch (IOException e) {
@@ -38,18 +37,14 @@ public class TestProductionLine {
     public static void main(String[] args) {
         try {
             TestProductionLine testLine = new TestProductionLine();
-            testLine.addProduct(new Product("Продукт 1") {
-                @Override
-                public String toString() {
-                    return "Название продукта: " + getName();
-                }
-            });
-            testLine.addProduct(new Product("Продукт 2") {
-                @Override
-                public String toString() {
-                    return "Название продукта: " + getName();
-                }
-            });
+            // Создадим список тестовых устройств
+            List<Product> products = DevicesDriver.getTestCollection();
+            // Выведем список устройств в консоль
+            DevicesDriver.printDevices(products);
+            MoviePlayerDriver.testMoviePlayerDriver();
+            PlayerDriver.testPlayerDriver();
+            ScreenDriver.testScreenDriver();
+            AudioPlayerDriver.testAudioPlayerDriver();
             testLine.testAndSaveResults();
         } catch (IOException e) {
             System.err.println("Failed to initialize test line: " + e.getMessage());

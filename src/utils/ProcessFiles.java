@@ -16,7 +16,7 @@ public class ProcessFiles {
     private final Path p3;
 
     public ProcessFiles() {
-        p = Paths.get(System.getProperty("user.dir"), "src", "main", "java");
+        p = Paths.get(System.getProperty("user.dir"));
         p2 = Paths.get(p.toString(), "TestResults.txt");
         p3 = p.resolve(p2.toString());
         createDirectory();
