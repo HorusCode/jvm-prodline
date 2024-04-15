@@ -1,5 +1,7 @@
 package core;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +45,10 @@ public abstract class Product implements Item {
                 System.out.println(product);
             }
         }
+    }
+
+    public static void sortProductsByName(List<? extends Product> products) {
+        Collections.sort(products, (p1, p2) -> p1.getName().compareTo(p2.getName()));
     }
 
     public String toString() {

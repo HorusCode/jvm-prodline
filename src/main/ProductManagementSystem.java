@@ -52,10 +52,15 @@ public class ProductManagementSystem {
     }
 
     private void displayProducts() {
+        Product.sortProductsByName(products);
         for (Product product : products) {
             System.out.println(product);
             System.out.println("--------------------------------------------------");
         }
+    }
+
+    public void print() {
+        products.forEach(System.out::println);
     }
 
     private void displayStats() {

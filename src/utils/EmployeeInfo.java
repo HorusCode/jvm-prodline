@@ -8,7 +8,7 @@ public class EmployeeInfo {
     private String code;
     private String deptId;
     private final Scanner in;
-    private static final Pattern VALID_ID_PATTERN = Pattern.compile("[A-Z][a-z]{3}\\d{2}]");
+    private static final Pattern VALID_ID_PATTERN = Pattern.compile("[A-Z][a-z]{3}\\d{2}");
 
     public EmployeeInfo() {
         in = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class EmployeeInfo {
     private void setName() {
         System.out.print("Enter employee name: ");
         String nameInput = in.nextLine();
-        if(checkName(nameInput)) {
+        if (checkName(nameInput)) {
             name = new StringBuilder(nameInput);
             createEmployeeCode(name);
         } else {
@@ -56,6 +56,11 @@ public class EmployeeInfo {
 
     public String getDeptId() {
         return deptId;
+    }
+
+    public String reverseString(String id) {
+        if (id.isEmpty()) return id;
+        return reverseString(id.substring(1)) + id.charAt(0);
     }
 
     @Override

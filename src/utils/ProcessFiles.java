@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProcessFiles {
     private final Path p;
@@ -36,15 +37,17 @@ public class ProcessFiles {
         }
     }
 
-    public void writeFile(EmployeeInfo employeeInfo) throws IOException {
-        String eol = System.getProperty("line.separator");
-        Files.writeString(p3, employeeInfo.toString() + eol, StandardOpenOption.APPEND);
+    public void writeFile(String content) throws IOException {
+        Files.writeString(p3, content + System.lineSeparator(), StandardOpenOption.APPEND);
     }
 
-    public void writeFile(ArrayList<Product> products) throws IOException {
-        String eol = System.getProperty("line.separator");
+    public void writeFile(EmployeeInfo emp) throws IOException {
+        writeFile(emp.toString());
+    }
+
+    public void writeFile(List<Product> products) throws IOException {
         for (Product product : products) {
-            Files.writeString(p3, product.toString() + eol, StandardOpenOption.APPEND);
+            writeFile(product.toString());
         }
     }
 }
